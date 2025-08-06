@@ -1,4 +1,4 @@
-package com.example.todoapp.common.exception;
+package com.example.todoapp.common.error.handler;
 
 import java.util.List;
 import java.util.Optional;
@@ -15,7 +15,9 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import com.example.todoapp.common.error.ErrorCode;
-import com.example.todoapp.common.error.service.ProblemDetailFactory;
+import com.example.todoapp.common.error.factory.ProblemDetailFactory;
+import com.example.todoapp.common.exception.ETagGenerationException;
+import com.example.todoapp.common.exception.ETagMismatchException;
 import com.example.todoapp.todo.exception.InvalidTodoArgumentException;
 import com.example.todoapp.todo.exception.TodoEntityNotFoundException;
 

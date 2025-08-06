@@ -22,7 +22,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import com.example.todoapp.common.dto.ResponseDtoWithETag;
+import com.example.todoapp.common.etag.dto.ResponseDtoWithETag;
 import com.example.todoapp.todo.dto.TodoRequestDto;
 import com.example.todoapp.todo.dto.TodoResponseDto;
 import com.example.todoapp.todo.dto.TodoResponseWithETagDto;

@@ -1,7 +1,7 @@
 package com.example.todoapp.common.exception;
 
 import com.example.todoapp.common.error.ErrorCode;
-import com.example.todoapp.common.error.service.ProblemDetailInfo;
+import com.example.todoapp.common.error.factory.ProblemDetailInfo;
 
 /**
  * ETagの生成に失敗した場合にスローされる例外クラス

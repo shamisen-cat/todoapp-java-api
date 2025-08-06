@@ -1,4 +1,4 @@
-package com.example.todoapp.common.etag;
+package com.example.todoapp.common.etag.factory;
 
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;

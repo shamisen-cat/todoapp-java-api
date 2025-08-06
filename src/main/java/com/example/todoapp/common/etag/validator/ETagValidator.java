@@ -1,4 +1,4 @@
-package com.example.todoapp.common.etag;
+package com.example.todoapp.common.etag.validator;
 
 import java.util.Objects;
 

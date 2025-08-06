@@ -15,7 +15,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 import com.example.todoapp.common.audit.Auditable;
-import com.example.todoapp.common.etag.ETagSource;
+import com.example.todoapp.common.etag.factory.ETagSource;
 
 /**
  * ToDoを表すエンティティクラス

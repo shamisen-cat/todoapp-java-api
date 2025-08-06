@@ -8,9 +8,9 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.annotation.Validated;
 
-import com.example.todoapp.common.dto.ResponseDtoWithETag;
-import com.example.todoapp.common.etag.ETagGenerator;
-import com.example.todoapp.common.etag.ETagValidator;
+import com.example.todoapp.common.etag.dto.ResponseDtoWithETag;
+import com.example.todoapp.common.etag.factory.ETagGenerator;
+import com.example.todoapp.common.etag.validator.ETagValidator;
 import com.example.todoapp.todo.dto.TodoRequestDto;
 import com.example.todoapp.todo.dto.TodoResponseDto;
 import com.example.todoapp.todo.dto.TodoResponseWithETagDto;

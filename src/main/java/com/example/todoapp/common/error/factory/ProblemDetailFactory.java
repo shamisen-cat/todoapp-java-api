@@ -1,4 +1,4 @@
-package com.example.todoapp.common.error.service;
+package com.example.todoapp.common.error.factory;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ProblemDetail;

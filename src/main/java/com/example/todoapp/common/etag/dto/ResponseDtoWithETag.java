@@ -1,4 +1,4 @@
-package com.example.todoapp.common.dto;
+package com.example.todoapp.common.etag.dto;
 
 /**
  * ETagによる整合性検証のためのレスポンスデータ転送オブジェクト

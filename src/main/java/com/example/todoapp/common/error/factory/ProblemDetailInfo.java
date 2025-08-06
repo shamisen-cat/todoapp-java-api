@@ -1,4 +1,4 @@
-package com.example.todoapp.common.error.service;
+package com.example.todoapp.common.error.factory;
 
 /**
  * エラーレスポンス生成時にエラーメッセージの引数を提供するインタフェース
