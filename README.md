@@ -23,6 +23,33 @@ ETagによる楽観的ロックをサポートし、ページング対応のREST
 | 開発環境   | H2 2.3             | macOS                        |
 | 本番想定   | PostgreSQL 16.9    | Raspberry Pi OS Lite (64bit) |
 
+## フォルダ構成
+
+```text
+com.example.todoapp
+├── common
+│   ├── audit
+│   ├── error
+│   │   ├── factory
+│   │   └── handler
+│   ├── etag
+│   │   ├── dto
+│   │   ├── factory
+│   │   └── validator
+│   └── exception
+├── config
+├── todo
+│   ├── controller
+│   ├── dto
+│   ├── exception
+│   ├── factory
+│   ├── mapper
+│   ├── model
+│   ├── repository
+│   └── service
+└── TodoappApplication.java
+```
+
 ## ビルドと起動
 
 ```bash
@@ -70,9 +97,9 @@ curl -X DELETE 'http://localhost:8080/api/todos/{id}' \
 
 ## 注意事項
 
-- ETagは楽観的ロックに使用します。
-- 一覧取得APIのレスポンスでは、各ToDoの `eTag` フィールドに含まれます。
-- 単一取得APIのレスポンスでは、HTTPレスポンスヘッダの `ETag` に含まれます。
-- 更新・削除APIのリクエスト時は、 `If-Match` ヘッダでETagを指定してください。
+- ETagは、楽観的ロックのために使用されます。
+- 一覧取得でのETagは、各ToDoの `etag` プロパティに含まれます。
+- 単一取得でのETagは、HTTPレスポンスの `ETag` ヘッダに含まれます。
+- 更新・削除リクエストでは、取得したETagを `If-Match` ヘッダに設定してください。
 - 本プロジェクトは学習を目的とした個人開発のため、セキュリティ・可用性の検討は限定的です。
-- 実運用の際は十分ご注意ください。
+- 実運用を前提とする場合には、十分な設計・検証を行なってください。
