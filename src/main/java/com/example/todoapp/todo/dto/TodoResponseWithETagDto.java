@@ -3,6 +3,8 @@ package com.example.todoapp.todo.dto;
 import java.time.LocalDate;
 import java.util.UUID;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 /**
  * ETagを含むクライアントに返すToDo情報のデータ転送オブジェクト
  *
@@ -19,5 +21,7 @@ public record TodoResponseWithETagDto(
     boolean completed,
     LocalDate createdAt,
     LocalDate updatedAt,
+
+    @JsonProperty("etag")
     String eTag
 ) {}
