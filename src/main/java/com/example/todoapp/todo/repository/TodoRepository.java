@@ -5,14 +5,14 @@ import java.util.UUID;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.example.todoapp.todo.model.Todo;
+import com.example.todoapp.todo.model.TodoEntity;
 
 /**
- * {@link Todo} のデータベースにアクセスするリポジトリ
+ * To-doのデータベースにアクセスするリポジトリインタフェース
  * <p>
- * CRUD操作をするための {@link JpaRepository} を継承する。
+ * CRUD操作を提供する {@link JpaRepository} を継承
  */
 @Repository
-public interface TodoRepository extends JpaRepository<Todo, UUID> {
-    // 必要に応じて独自のクエリメソッドを定義する。
+public interface TodoRepository extends JpaRepository<TodoEntity, UUID> {
+    // 必要に応じてクエリメソッドを定義
 }

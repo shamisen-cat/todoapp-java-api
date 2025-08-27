@@ -1,7 +1,7 @@
 # TodoApp: Spring Boot REST API Sample
 
 Spring BootによるシンプルなTo-do管理API  
-ETagの楽観的ロックとページング機能に対応するREST APIを提供
+ETagの楽観的ロックとページング機能に対応したREST APIを提供
 
 ## 特徴
 
@@ -25,27 +25,35 @@ ETagの楽観的ロックとページング機能に対応するREST APIを提�
 ## フォルダ構成
 
 ```text
-com.example.todoapp
-├── common
-│   ├── audit
-│   ├── error
+todoapp
+├── todo
+│   ├── model
+│   ├── dto
+│   ├── repository
+│   ├── service
+│   │   ├── finder
+│   │   ├── query
+│   │   ├── command
+│   │   ├── factory
+│   │   └── mapper
+│   ├── controller
+│   │   ├── query
+│   │   └── command
 │   ├── exception
-│   └── validation
-├── config
+│   └── handler
 ├── etag
 │   ├── dto
-│   ├── exception
+│   ├── validation
 │   ├── factory
-│   └── service
-├── todo
-│   ├── controller
-│   ├── dto
 │   ├── exception
-│   ├── factory
-│   ├── mapper
-│   ├── model
-│   ├── repository
-│   └── service
+│   └── handler
+├── common
+│   ├── audit
+│   ├── validation
+│   └── error
+│       ├── builder
+│       └── handler
+├── config
 └── TodoappApplication.java
 ```
 
@@ -81,14 +89,14 @@ curl http://localhost:8080/api/todos | jq
     },
     ...
   ],
-  "pageable": {                // ページング情報
-    "pageNumber": number,      // 0始まりのページ番号
-    "pageSize": number         // 1ページあたりの件数
+  "pageable": {                // ページ情報
+    "pageNumber": number,      // ページ番号
+    "pageSize": number         // 表示件数
   },
   "totalPages": number,        // 総ページ数
   "totalElements": number,     // 総件数
-  "number": number,            // 現在のページ番号
-  "size": number,              // 1ページあたりの件数
+  "number": number,            // ページ番号
+  "size": number,              // 表示件数
   "first": boolean,            // 最初のページ判定
   "last": boolean,             // 最後のページ判定
   "numberOfElements": number,  // 現在のページの件数

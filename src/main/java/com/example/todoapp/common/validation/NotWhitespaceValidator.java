@@ -6,13 +6,13 @@ import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintValidatorContext;
 
 /**
- * 空白文字のみの文字列を検証するバリデータ
+ * 空白文字のバリデータクラス
  */
 public final class NotWhitespaceValidator
     implements ConstraintValidator<NotWhitespace, String> {
 
     /**
-     * 空白文字のみの文字列を検証する。
+     * 空白文字の検証をする。
      *
      * @param value   検証対象の文字列
      * @param context バリデーションコンテキスト

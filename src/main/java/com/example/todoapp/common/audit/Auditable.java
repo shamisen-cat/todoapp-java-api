@@ -21,14 +21,14 @@ import lombok.Getter;
 public abstract class Auditable {
 
     /**
-     * 新規作成時に自動設定される作成日時
+     * 自動設定される作成日時
      */
     @Column(name = "created_at", updatable = false)
     @CreatedDate
     private LocalDateTime createdAt;
 
     /**
-     * 更新時に自動更新される更新日時
+     * 自動更新される更新日時
      */
     @Column(name = "updated_at")
     @LastModifiedDate

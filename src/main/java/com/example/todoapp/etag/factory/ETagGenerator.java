@@ -10,9 +10,9 @@ import org.springframework.stereotype.Component;
 import com.example.todoapp.etag.exception.ETagGenerationException;
 
 /**
- * ETagを生成するファクトリ
+ * ETagを生成するファクトリクラス
  *
- * @param <T> ETagのベース文字列を取得するための {@link ETagSource} を実装したクラス
+ * @param <T> ETagのベース文字列値を取得する {@link ETagSource} を実装したクラス
  */
 @Component
 public class ETagGenerator<T extends ETagSource> {
@@ -20,40 +20,24 @@ public class ETagGenerator<T extends ETagSource> {
     /**
      * ETagを生成する。
      *
-     * @param source {@link ETagSource} を実装したインスタンス
-     * @return ETagの値
+     * @param source  {@link ETagSource} を実装したインスタンス
+     * @return ETag文字列値
      * @throws ETagGenerationException ETagの生成に失敗した場合
      */
     public String generate(T source) {
-        return generate(source, "ETagGenerator#generate");
-    }
-
-    /**
-     * ETagを生成する。
-     *
-     * @param source  {@link ETagSource} を実装したインスタンス
-     * @param context 例外に含めるコンテキストの識別情報
-     * @return ETagの値
-     * @throws ETagGenerationException ETagの生成に失敗した場合
-     */
-    public String generate(T source, String context) {
         if (source == null) {
-            throw new ETagGenerationException(context, "Argument 'source' is null");
+            throw new ETagGenerationException("Argument 'source' is null.");
         }
 
         try {
             String base = source.getETagBase();
             MessageDigest digest = MessageDigest.getInstance("SHA-256");
-
             byte[] hash = digest.digest(base.getBytes(StandardCharsets.UTF_8));
 
-            return String.format(
-                "\"%s\"",
-                Base64.getEncoder().encodeToString(hash)
-            );
+            return String.format("\"%s\"", Base64.getEncoder().encodeToString(hash));
 
-        } catch (NoSuchAlgorithmException ex) {
-            throw new ETagGenerationException(context, ex.getMessage(), ex);
+        } catch (NoSuchAlgorithmException e) {
+            throw new ETagGenerationException(e.getMessage(), e);
         }
     }
 }
